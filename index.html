@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>TaskFlow</title>
+
+  <link rel="stylesheet" href="css/style.css"/>
+
+</head>
+<body>
+
+  <div class="app-layout">
+
+    <aside class="sidebar">
+
+      <div class="logo">
+        ✨ TaskFlow
+      </div>
+
+      <nav class="sidebar-nav">
+
+        <button
+          class="filter-btn active"
+          data-filter="all"
+          onclick="setFilter('all')"
+        >
+          📋 Все задачи
+        </button>
+
+        <button
+          class="filter-btn"
+          data-filter="active"
+          onclick="setFilter('active')"
+        >
+          ⏳ Активные
+        </button>
+
+        <button
+          class="filter-btn"
+          data-filter="completed"
+          onclick="setFilter('completed')"
+        >
+          ✅ Выполненные
+        </button>
+
+      </nav>
+
+      <div class="sidebar-cat">
+
+        <img
+          src="assets/gifs/sidebar-cat.gif"
+          alt="Sidebar gif"
+        >
+
+        <p>
+          Оставайся продуктивным!
+        </p>
+
+      </div>
+
+    </aside>
+
+    <div class="main-content">
+
+      <header class="header">
+
+        <h1>Дашборд задач</h1>
+
+        <div class="top-controls">
+
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Поиск задач..."
+          >
+
+          <button id="themeToggle">
+            🌙
+          </button>
+
+        </div>
+
+      </header>
+
+      <main class="container">
+
+        <section class="stats">
+
+          <div class="stat-card">
+            <h3 id="totalTasks">0</h3>
+            <p>Всего задач</p>
+          </div>
+
+          <div class="stat-card">
+            <h3 id="completedTasks">0</h3>
+            <p>Выполнено</p>
+          </div>
+
+          <div class="stat-card">
+            <h3 id="activeTasks">0</h3>
+            <p>Активно</p>
+          </div>
+
+        </section>
+
+        <section class="progress-section">
+
+          <div class="progress-header">
+
+            <span>
+              Прогресс выполнения
+            </span>
+
+            <span id="progressPercent">
+              0%
+            </span>
+
+          </div>
+
+          <div class="progress-bar">
+            <div id="progressFill"></div>
+          </div>
+
+        </section>
+
+        <section class="task-form">
+
+          <input
+            type="text"
+            id="taskInput"
+            placeholder="Введите задачу"
+          >
+
+          <select id="categoryInput">
+
+            <option value="Учёба">
+              Учёба
+            </option>
+
+            <option value="Работа">
+              Работа
+            </option>
+
+            <option value="Дом">
+              Дом
+            </option>
+
+            <option value="Личное">
+              Личное
+            </option>
+
+          </select>
+
+          <select id="priorityInput">
+
+            <option value="low">
+              Низкий
+            </option>
+
+            <option value="medium">
+              Средний
+            </option>
+
+            <option value="high">
+              Высокий
+            </option>
+
+          </select>
+
+          <input
+            type="date"
+            id="dateInput"
+          >
+
+          <button onclick="addTask()">
+            Добавить
+          </button>
+
+        </section>
+
+        <section class="sort-section">
+
+          <select id="sortSelect">
+
+            <option value="new">
+              Сначала новые
+            </option>
+
+            <option value="completed">
+              Сначала выполненные
+            </option>
+
+            <option value="priority">
+              По приоритету
+            </option>
+
+          </select>
+
+        </section>
+
+        <section
+          id="taskList"
+          class="task-list"
+        ></section>
+
+      </main>
+
+    </div>
+
+  </div>
+
+  <div id="celebrationGif">
+
+    <img
+      id="celebrationGifImg"
+      src=""
+      alt="Celebration animation"
+    >
+
+  </div>
+
+  <div id="toast"></div>
+
+  <script src="js/app.js"></script>
+
+</body>
+</html>
